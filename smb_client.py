@@ -55,7 +55,7 @@ if __name__ == "__main__":
     upass = 'fujinolab'
     hname = 'share'
     
-    src_folder = os.path.join('個人用', '13期', '吉田', 'CAN_Data')
+    src_folder = os.path.join('個人用', '13期', '吉田', 'Datasets', 'CAN_Data')
     dst_folder = './data'
     
     os.makedirs(dst_folder, exist_ok=True)
