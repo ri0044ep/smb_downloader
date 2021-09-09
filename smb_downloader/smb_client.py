@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 '''
-Terastationからファイルをダウンロードしてくる
+SMBサーバからファイルをダウンロードしてくる
 '''
 
 # import pip install pysmb
@@ -48,18 +48,3 @@ class smb_client:
                 self.get_files_by_folder(os.path.join(src_folder, f.filename), os.path.join(dst_folder, f.filename))
             else:
                 self.get_file(src_folder, dst_folder, f.filename)
-
-
-if __name__ == "__main__":
-    ip = '172.24.162.203'
-    uname = 'share'
-    upass = 'fujinolab'
-    hname = 'share'
-    
-    src_folder = os.path.join('個人用', '13期', '吉田', 'Datasets', 'CAN_Data')
-    dst_folder = './data'
-    
-    os.makedirs(dst_folder, exist_ok=True)
-    
-    with smb_client(uname, upass, hname, ip) as c:
-        c.get_files_by_folder(src_folder, './')

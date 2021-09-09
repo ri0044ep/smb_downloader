@@ -7,7 +7,15 @@ SMBサーバからファイルをダウンロードする
 Gitとは別で管理するのが望ましい。 
 このプログラムを使うと、接続先とダウンロードフォルダを指定するだけでファイルのダウンローダを作れる。　　
 
-## 使い方
-ライブラリ本体は`smb_client.py`  
-使用するためには予め`pip install pysmb`でPySMBをインストールする必要がある  
-使い方の実例は`download.py`を参照  
+## 使用例
+
+```python
+# uname: SMBサーバのユーザ名
+# upass: SMBサーバのパスワード
+# hname: SMBサーバのルートフォルダ名 (e.g. share)
+# ip: SMBサーバのIPアドレス
+# src_folder: ダウンロード元のフォルダパス (hnameは除く)
+# dst_folder: ダウンロード先のフォルダパス
+with smb_client.smb_client(uname, upass, hname, ip) as c:
+    c.get_files_by_folder(src_folder, dst_folder)
+```
