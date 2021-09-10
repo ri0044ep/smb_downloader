@@ -1,1 +1,1 @@
-from . import smb_client
+from .smb_client import smb_client
