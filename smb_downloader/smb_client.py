@@ -25,6 +25,7 @@ class smb_client:
         '''
         <src_folder>内にある<file_name>を<dst_folder>にダウンロード
         '''
+        os.makedirs(dst_folder, exist_ok=True)
         with open(os.path.join(dst_folder, file_name), 'wb') as f:
             print('downloading : {}'.format(os.path.join(src_folder, file_name)))
             self.conn.retrieveFile(self.remote_name, os.path.join(src_folder, file_name), f)
